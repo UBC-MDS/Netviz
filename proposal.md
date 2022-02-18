@@ -12,7 +12,9 @@ Lianna Hovhannisyan, Lynn Wu, Simon Guo, Nobby Nguyen
 ### Target Audience: Company's shareholders/stakeholders
 
 Since the end of 2019, we have seen two rather tumultuous years in the entertainment industry. Lockdown measures enforced due to the Covid-19 pandemic brought about a surge in TV watching and online streaming. Therefore, more and more media companies are investing in their own streaming services to accommodate the increasing demand of online streaming of the users. 
+
 In order to pick up on the new trend of online streaming in the next few years, it is integral for new streaming platforms to know where the industry is going. As regional differences have brought some troublesome for users in different countries; hence global consolidation streaming is expected be a new trend. As such, insights extracted from data of global giant name as Netflix are great resources for these platforms to decide their business strategy. 
+
 To overcome this obstacle, we propose building a data visualization app that allows stakeholders in the streaming companies to explore a dataset of Netflix to determine the popular content that they need to provide to their users, or to invest in which genre of the original content. The app will show the distribution of movie genres over time and over the countries of origin, as well as the movie/tvshows rating to target the right market segment. 
 # Description of the data
 
