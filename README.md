@@ -7,7 +7,11 @@ This project aims at building interactive dashboards for Netflix data. Further d
 
 ## Description & sketch
 
+The dashboard provides some summarized information on Netflix shows and movies given by the chosen genre, type and duration of the shows/movies. It contains a world map showing the distribution of Netflix show/movie with color-coded scheme indicating the amount of shows/movies produced in each country/region. From a dropdown list, users can filter out genres from the display distribution, by years, by location (i.e. the country where they are produced), and by the frequencies of their ratings. Detailed information of the (sampled) individual shows/movies would be shown in a table in the dashboard as well, giving users more information on selection of movies/shows. From the radio button, users can select to see TV shows or movies that are on Netflix. The sliding bar allows users to filter on the duration of the show/movie and different plots and results would be reflecting the filtered results. The table of detailed information on the individual shows/movies will also be included for reference, in case the users would like to check out their favorite movies of the specific genre are there. The rating plot would give out information on the distribution of each rating type of the selected/filtered movies/shows.
 
+Here is a sketch of the dashboard:
+
+![dashboard-sketch](https://i.ibb.co/990M6R3/netviz-dashboard.png)
 
 ## Contributing
 
