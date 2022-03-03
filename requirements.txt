@@ -1,4 +1,3 @@
-os
 altair
 dash==2.1.0
 vega_datasets
