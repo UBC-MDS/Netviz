@@ -5,11 +5,15 @@ import pandas as pd
 from vega_datasets import data
 import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate
+import os
 
+
+current_directory = os.path.dirname(__file__)
 
 # Read in global data
-input_path = "../data/processed/"
-df = pd.read_csv(input_path+"netflix_movies_genres.csv")
+df = pd.read_csv(
+    os.path.join(current_directory, "../data/processed/netflix_movies_genres.csv")
+)
 
 def plot_rating(genre):
     chart = alt.Chart(df[df.genre == genre], title=f"Rating distribution of {genre}").mark_bar().encode(
@@ -40,7 +44,11 @@ def plot_country(genre):
     country_df['country'] = country_df['country'].apply(lambda x: x.split(', '))
     country_df = country_df.explode('country')
     # find the id based on the country name
-    country_id = pd.read_csv(input_path+"country_ids.csv")
+    
+    
+    country_id = pd.read_csv(
+        os.path.join(current_directory, "../data/processed/country_ids.csv")
+        )
     country_df = country_df.groupby(by=['country']).count().show_id.reset_index().rename(columns={'show_id':'count', 'country':'name'})
     country_df = country_df.merge(country_id, on='name')
     # plot the world map
@@ -185,3 +193,4 @@ def multi_output(genre):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+    
