@@ -3,23 +3,42 @@ Lianna Hovhannisyan, Lynn Wu, Simon Guo, Nobby Nguyen
 
 ## About 
 
-Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). Further details can be found in our [proposal](https://github.com/UBC-MDS/netviz/blob/main/doc/proposal.md) document. The dashboard can be accessed from [here](link to deployed dashboard **TODO**).
+Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). The dashboard can be accessed from [here](https://dsci532-2022-group3-netviz.herokuapp.com/).
 
-## Description & sketch
-**TODO based on actual dashboard**
+To learn about our project, jump straight to one of the sections below, or just scroll down to find out more.
 
-The dashboard provides some summarized information on Netflix movies given by the chosen genre, type and duration. It contains a world map showing the distribution of Netflix movies with color-coded scheme indicating the amount of movies produced in each country/region. From a dropdown list, users can filter out genres from the display distribution, by years, by location (i.e. the country where they are produced), and by the frequencies of their ratings. Detailed information of the (sampled) individual movies would be shown in a table in the dashboard as well, giving users more information on selection of movies. From the radio button, users can select to see movies that are on Netflix. The sliding bar allows users to filter on the duration of the movie and different plots and results would be reflecting the filtered results. The table of detailed information on the individual movies will also be included for reference, in case the users would like to check out their favorite movies of the specific genre are there. The rating plot would give out information on the distribution of each rating type of the selected/filtered movies.
+- [About](#about)
+- [Description](#description)
+- [Motivation behind project](#motivation-behind-project)
+- [Installation & running from local](#installation-and-running-from-local)
+- [Get involved](#get-involved)
+- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [License](#license)
 
-Here is a sketch of the dashboard design:
 
-![dashboard-sketch](https://i.ibb.co/990M6R3/netviz-dashboard.png)
+
+## Description
+
+NetViz provides some summarized information on Netflix movies given by the chosen genre. From a dropdown list, users can filter out a genre that they are interested in. Currently there are four visualizations available on NetViz. First, users can find a rating plot that displays information on the distribution of each rating type of the filtered movies. Second, users can use the time-series trending plot to discover number of movies by release year. Third, users can find a world map showing the distribution of Netflix movies with color-coded scheme indicating the amount of movies produced in each country/region. Last but not least, users who are interested to learn more about their movie selection can refer to the table on the individual movies, which provides detailed information including a short description and the director. The source data for NetViz can be found [here](https://www.kaggle.com/shivamb/netflix-shows).
+
+Here is a demo of the dashboard:
+
+**TODO**Insert a demo GIF of the latest dashboard
 
 ## Motivation behind project
-**TODO**
-include motivation behind your project and clearly explain what problem you are solving and why it is important.
 
-## Installation & running from local
-If you wish to install and run the dashboard from local, here are the steps.
+Since the end of 2019, we have seen two rather tumultuous years in the entertainment industry. Lockdown measures enforced due to the Covid-19 pandemic brought about a surge in TV watching and online streaming. Therefore, more and more media companies are investing in their own streaming services to accommodate the increasing demand of online streaming of the users.
+
+In order to pick up on the new trend of online streaming in the next few years, it is integral for new streaming platforms to know where the industry is going. As regional differences have brought some troublesome for users in different countries; hence global consolidation streaming is expected to be a new trend. As such, insights extracted from data of global giant name as Netflix are great resources for these platforms to decide their business strategy.
+
+To overcome this obstacle, we propose building a data visualization app that allows stakeholders in the streaming companies to explore a dataset of Netflix to determine the popular content that they need to provide to their users, or to invest in which genre of the original content. The app will show the distribution of movie genres over time, as well as the movie rating to target the right market segment.
+
+## Installation and running from local
+
+NetViz is powered by `Dash`. New to `Dash`? Visit [here](https://dash.plotly.com/introduction) to learn more about `Dash`.
+
+If you wish to install and run NetViz from local, here are the steps.
 
 - In terminal, enter the following command:
 ```
@@ -38,8 +57,12 @@ python3 app.py
 ![image](https://user-images.githubusercontent.com/78331839/156524652-f4279e6c-3827-4bff-917f-309e8bcba4e6.png)
 
 ## Get involved
-**TODO**
-Suggestions for what you would like help with and how to work in your project
+
+Let us know what you think about NetViz! We welcome any feedback with our project. If you would like to help make this project better, you can get involved in the following ways:
+- Tell us what you like or dislike about NetViz dashboard.
+- Share your thoughts on what features or plots you would like to see on NetViz (e.g. Is there a specific level of filtering that interests you?)
+
+If you have a bug to report or an idea, feel free to browse the open issues before opening a new one. Your messages will be reviewed and replied by the project team in a timely manner.
 
 ## Contributing
 
