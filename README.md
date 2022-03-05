@@ -24,7 +24,7 @@ NetViz provides some summarized information on Netflix movies given by the chose
 
 Here is a demo of the dashboard:
 
-**TODO**Insert a demo GIF of the latest dashboard
+![2022-03-03 23 14 05](https://user-images.githubusercontent.com/78331839/156862549-517b2400-f88e-49ef-887e-5ef1f446dc96.gif)
 
 ## Motivation behind project
 
