@@ -50,11 +50,11 @@ cd netviz
 ```
 - Run the `app.py` file using python:
 ```
-python3 app.py
+python3 src/app.py
 ```
-- In the returning message, `ctrl+double click` or copy the website shown in the yellow box to open the dashboard:
+- In the returning message, `ctrl+double click` or copy the website shown to open the dashboard:
 
-![image](https://user-images.githubusercontent.com/78331839/156524652-f4279e6c-3827-4bff-917f-309e8bcba4e6.png)
+![image](https://user-images.githubusercontent.com/78331839/156898869-638dcc41-c395-4fa0-8231-2c2525966d92.png)
 
 ## Get involved
 
