@@ -12,7 +12,7 @@ current_directory = os.path.dirname(__file__)
 
 # Read in global data
 df = pd.read_csv(
-    os.path.join(current_directory, "../data/processed/netflix_movies_genres.csv")
+    os.path.join(current_directory, "data/processed/netflix_movies_genres.csv")
 )
 
 def plot_rating(genre):
@@ -47,7 +47,7 @@ def plot_country(genre):
     
     
     country_id = pd.read_csv(
-        os.path.join(current_directory, "../data/processed/country_ids.csv")
+        os.path.join(current_directory, "data/processed/country_ids.csv")
         )
     country_df = country_df.groupby(by=['country']).count().show_id.reset_index().rename(columns={'show_id':'count', 'country':'name'})
     country_df = country_df.merge(country_id, on='name')
