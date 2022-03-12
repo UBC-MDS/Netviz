@@ -1,8 +1,8 @@
 import pandas as pd
 
-out_dir = "../data/processed/"
+out_dir = "data/processed/"
 
-df = pd.read_csv('../data/raw/netflix_titles.csv')
+df = pd.read_csv('data/raw/netflix_titles.csv')
 df = df.query('type == "Movie"').drop(columns=['type'])
 df = df.dropna()
 df['duration'] = df['duration'].apply(lambda x: x.split(" ")[0]).astype(int)
