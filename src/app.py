@@ -5,8 +5,11 @@ import pandas as pd
 from vega_datasets import data
 import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate
-import os
 
+# Set up app
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app.title = "NetViz"
+server = app.server
 
 # Read in global data
 df = pd.read_csv("data/processed/netflix_movies_genres.csv")
@@ -43,6 +46,7 @@ def plot_country(genre):
     
     
     country_id = pd.read_csv("data/processed/country_ids.csv")
+    
         
     country_df = country_df.groupby(by=['country']).count().show_id.reset_index().rename(columns={'show_id':'count', 'country':'name'})
     country_df = country_df.merge(country_id, on='name')
@@ -77,10 +81,7 @@ def plot_country(genre):
     )
     return final_map.to_html()
 
-# Setup app and layout/frontend
-app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.title = "NetViz"
-server = app.server
+# layout/frontend
 
 app.layout = dbc.Container([
     html.H1(children='NetViz - Netflix Movies Visualization Dashboard', 
