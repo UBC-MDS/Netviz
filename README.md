@@ -57,7 +57,7 @@ python3 src/app.py
 
 ![image](https://user-images.githubusercontent.com/78331839/156898869-638dcc41-c395-4fa0-8231-2c2525966d92.png)
 
-2. If you want to run this app using `Docker`:
+2. If you want to run this app using `Docker`, open your `Docker` desktop and enter in terminal:
 ```
 docker-compose up
 ```
