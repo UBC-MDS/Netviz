@@ -84,6 +84,7 @@ def plot_country(genre):
 
 # Setup app and layout/frontend
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app.title = "NetViz"
 server = app.server
 app.layout = dbc.Container([
     html.H1(children='NetViz - Netflix Movies Visualization Dashboard', style={'font-size': "360%", 'color':'#bd1818'}),
