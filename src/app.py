@@ -8,12 +8,8 @@ from dash.exceptions import PreventUpdate
 import os
 
 
-current_directory = os.path.dirname(__file__)
-
 # Read in global data
-df = pd.read_csv(
-    os.path.join(current_directory, "data/processed/netflix_movies_genres.csv")
-)
+df = pd.read_csv("data/processed/netflix_movies_genres.csv")
 
 def plot_rating(genre):
     chart = alt.Chart(df[df.genre == genre], title=f"Rating distribution of {genre}").mark_bar().encode(
@@ -46,9 +42,8 @@ def plot_country(genre):
     # find the id based on the country name
     
     
-    country_id = pd.read_csv(
-        os.path.join(current_directory, "data/processed/country_ids.csv")
-        )
+    country_id = pd.read_csv("data/processed/country_ids.csv")
+        
     country_df = country_df.groupby(by=['country']).count().show_id.reset_index().rename(columns={'show_id':'count', 'country':'name'})
     country_df = country_df.merge(country_id, on='name')
     # plot the world map
@@ -86,8 +81,10 @@ def plot_country(genre):
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.title = "NetViz"
 server = app.server
+
 app.layout = dbc.Container([
-    html.H1(children='NetViz - Netflix Movies Visualization Dashboard', style={'font-size': "360%", 'color':'#bd1818'}),
+    html.H1(children='NetViz - Netflix Movies Visualization Dashboard', 
+            style={'font-size': "360%", 'color':'#bd1818'}),
     html.Br(),
     html.Br(),
     dbc.Row([
