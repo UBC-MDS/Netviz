@@ -48,13 +48,20 @@ git clone https://github.com/UBC-MDS/netviz.git
 ```
 cd netviz
 ```
-- Run the `app.py` file using python:
+There are two options to run the dashboard:
+1. If you want to use  `python` to run the `app.py`:
 ```
 python3 src/app.py
 ```
-- In the returning message, `ctrl+double click` or copy the website shown to open the dashboard:
+  - In the returning message, `ctrl+double click` or copy the website shown to open the dashboard:
 
 ![image](https://user-images.githubusercontent.com/78331839/156898869-638dcc41-c395-4fa0-8231-2c2525966d92.png)
+
+2. If you want to run this app using `Docker`:
+```
+docker-compose up
+```
+  - Open the app in the following URL: http://0.0.0.0:8000
 
 ## Get involved
 
