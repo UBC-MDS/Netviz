@@ -51,7 +51,7 @@ cd netviz
 There are two options to run the dashboard:
 1. If you want to use  `python` to run the `app.py`:
 ```
-python3 app.py
+python3 src/app.py
 ```
   - In the returning message, `ctrl+double click` or copy the website shown to open the dashboard:
 
