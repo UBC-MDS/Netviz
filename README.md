@@ -3,7 +3,7 @@ Lianna Hovhannisyan, Lynn Wu, Simon Guo, Nobby Nguyen
 
 ## About 
 
-Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). The dashboard can be accessed from [here](https://dsci532-2022-group3-netviz.herokuapp.com/).
+Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). The dashboard can be accessed from [here](https://dsci532-netviz.herokuapp.com/).
 
 To learn about our project, jump straight to one of the sections below, or just scroll down to find out more.
 
