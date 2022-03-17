@@ -39,7 +39,7 @@ def plot_time(genre):
         ).encode(
             y=alt.Y('count', title="Number of movies", 
                 axis=alt.Axis(values=list(range(0, 300, 5)), format='.0f'),
-                scale=alt.Scale(domain=(0, 100))),
+                scale=alt.Scale(domain=(0, 300))),
             x=alt.X('release_year', title="Year", axis=alt.Axis(format='.0f'),
                 scale=alt.Scale(domain=(1940, 2022))),
             tooltip=['count', 'release_year']
