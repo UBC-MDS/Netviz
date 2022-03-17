@@ -144,7 +144,7 @@ app.layout = dbc.Container([
             dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('World Map', 
+                        dbc.CardBody(html.H5('World Map of Netflix Movies', 
                             style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
                         color='#221F1F'
@@ -158,7 +158,7 @@ app.layout = dbc.Container([
             dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('Table of Examples', 
+                        dbc.CardBody(html.H5('Table of Netflix Movies', 
                             style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
                         color='#221F1F'
@@ -191,8 +191,11 @@ app.layout = dbc.Container([
     Input('genre', 'value'))
 
 def multi_output(genre):
-    selected_df = df[df.genre == genre].sort_values(by=['title'])
-    cols = ["title", "description", "director"]
+    selected_df = df[df.genre == genre].sort_values(by=['release_year'], ascending=False)
+    selected_df.rename(columns={'title': 'Title', 'description': 'Description',
+                                'director': 'Director', 'release_year': 'Release Year', 
+                                'duration': 'Duration(min)'}, inplace=True)
+    cols = ["Title", "Description", "Director", "Release Year", "Duration(min)"]
     columns = [{"name": col, "id": col} for col in cols]
     data = selected_df[cols].to_dict('records')
     tooltip_data = [{
