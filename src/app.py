@@ -168,9 +168,29 @@ app.layout = dbc.Container([
                                 'overflow': 'hidden',
                                 'textOverflow': 'ellipsis',
                                 'maxWidth': 0,
+                                'textAlign': 'left',
+                                'border': '1px solid blue'
                         },
+                        style_header={
+                                'backgroundColor': 'white',
+                                'fontWeight': 'bold',
+                                'textAlign': 'left',
+                                'border': '2px solid red' 
+                        },
+                        style_data_conditional=[
+                            {'if': {'row_index': 'odd'},
+                                    'backgroundColor': 'rgb(220, 220, 220)'},
+                            {'if': {'column_id': 'Title'},
+                                    'width': '25%'},
+                            {'if': {'column_id': 'Description'},
+                                    'width': '30%'},
+                            {'if': {'column_id': 'Director'},
+                                    'width': '20%'}
+                        ],
                         tooltip_duration=None,
-                        id='table', page_size=10
+                        id='table', page_size=10,
+                        sort_action="native",
+                        sort_mode="multi"
                     ),
                 ])
             ])
