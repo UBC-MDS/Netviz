@@ -24,7 +24,7 @@ def plot_rating(genre):
         if rating not in sub_ratings:
             group_df = pd.concat([group_df, pd.DataFrame.from_dict({'rating': [rating], 'count': [0]})])
     # Plot the chart
-    chart = alt.Chart(group_df, title=f"Rating distribution of {genre}").mark_bar().encode(
+    chart = alt.Chart(group_df, title=f"Maturity rating distribution of {genre}").mark_bar().encode(
               y=alt.Y('rating', title="Rating", sort='x'),
               x=alt.X('count', title="Number of movies", axis=alt.Axis(format='.0f')),
               tooltip='count'
@@ -116,7 +116,7 @@ app.layout = dbc.Container([
             dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('Rating', 
+                        dbc.CardBody(html.H5('Maturity Rating', 
                             style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
                         color='#221F1F'
