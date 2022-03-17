@@ -106,9 +106,9 @@ app.layout = dbc.Container([
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('Rating', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#e63900'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='rating',
@@ -119,9 +119,9 @@ app.layout = dbc.Container([
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('Netflix Movies over Time', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#de5239'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='time',
@@ -134,9 +134,9 @@ app.layout = dbc.Container([
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('World Map', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#ff836a'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='country',
@@ -147,9 +147,9 @@ app.layout = dbc.Container([
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('Table of Examples', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#ff524a'
+                        color='#221F1F'
                     ),
                     dash_table.DataTable(
                         style_cell={
