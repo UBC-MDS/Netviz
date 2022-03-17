@@ -15,10 +15,19 @@ server = app.server
 df = pd.read_csv("data/processed/netflix_movies_genres.csv")
 
 def plot_rating(genre):
-    chart = alt.Chart(df[df.genre == genre], title=f"Rating distribution of {genre}").mark_bar().encode(
+    # Add the missing rating to keep every genre have all rating types
+    all_ratings = df['rating'].unique().tolist()
+    group_df = df[df.genre == genre].groupby(by=['rating']).count()['show_id'].reset_index()
+    group_df = group_df.rename(columns={'show_id': 'count'})
+    sub_ratings = group_df['rating'].tolist()
+    for rating in all_ratings:
+        if rating not in sub_ratings:
+            group_df = pd.concat([group_df, pd.DataFrame.from_dict({'rating': [rating], 'count': [0]})])
+    # Plot the chart
+    chart = alt.Chart(group_df, title=f"Maturity rating distribution of {genre}").mark_bar().encode(
               y=alt.Y('rating', title="Rating", sort='x'),
-              x=alt.X('count()', title="Number of movies", axis=alt.Axis(format='.0f')),
-              tooltip='count()'
+              x=alt.X('count', title="Number of movies", axis=alt.Axis(format='.0f')),
+              tooltip='count'
               ).interactive()
     return chart.to_html()
 
@@ -28,7 +37,9 @@ def plot_time(genre):
     chart = alt.Chart(group_df, title=f"Release year plot of {genre}").mark_line(
         point={"filled": False,"fill": "white"}
         ).encode(
-            y=alt.Y('count', title="Frequency", axis=alt.Axis(format='.0f')),
+            y=alt.Y('count', title="Number of movies", 
+                axis=alt.Axis(values=list(range(0, 300, 5)), format='.0f'),
+                scale=alt.Scale(domain=(0, 100))),
             x=alt.X('release_year', title="Year", axis=alt.Axis(format='.0f'),
                 scale=alt.Scale(domain=(1940, 2022))),
             tooltip=['count', 'release_year']
@@ -53,14 +64,14 @@ def plot_country(genre):
     # plot the world map
     source = alt.topo_feature(data.world_110m.url, "countries")
 
-    background = alt.Chart(source).mark_geoshape(fill="white")
+    background = alt.Chart(source).mark_geoshape(fill="lightgray")
 
     foreground = (
-        alt.Chart(source)
+        alt.Chart(source, title=f"Total number of {genre} type Netflix movies by country")
         .mark_geoshape(stroke="black", strokeWidth=0.15)
         .encode(
             color=alt.Color(
-                "count:Q", scale=alt.Scale(scheme='viridis'),
+                "count:Q", scale=alt.Scale(scheme='orangered'),
             ),
             tooltip=[
                 alt.Tooltip("name:N", title="Country"),
@@ -76,8 +87,8 @@ def plot_country(genre):
     final_map = (
         (background + foreground)
         .configure_view(strokeWidth=0)
-#        .properties(width=700/5, height=400/5)
-        .project("equalEarth", scale=90)
+        .properties(width=1100, height=400)
+        .project("equalEarth")
     )
     return final_map.to_html()
 
@@ -100,28 +111,28 @@ app.layout = dbc.Container([
                     options=[{'label': i, 'value': i} for i in df['genre'].unique()]
                 )
             ])
-        ], md=2),
+        ], md=3),
         dbc.Col([
             dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('Rating', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                        dbc.CardBody(html.H5('Maturity Rating', 
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#e63900'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='rating',
-                        style={'border-width': '0', 'width': '600px', 'height': '500px'},
+                        style={'border-width': '0', 'width': '700px', 'height': '500px'},
                         srcDoc=plot_rating(genre='Comedies')
                     )
                 ], md=6),
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('Netflix Movies over Time', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#de5239'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='time',
@@ -133,32 +144,53 @@ app.layout = dbc.Container([
             dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('World Map', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                        dbc.CardBody(html.H5('World Map of Netflix Movies', 
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#ff836a'
+                        color='#221F1F'
                     ),
                     html.Iframe(
                         id='country',
-                        style={'border-width': '0', 'width': '700px', 'height': '500px'},
+                        style={'border-width': '0', 'width': '1400px', 'height': '500px'},
                         srcDoc=plot_country(genre='Comedies')
                     )
-                ], md=6),
+                ])]),
+            dbc.Row([
                 dbc.Col([
                     dbc.Card(
-                        dbc.CardBody(html.H5('Table of Examples', 
-                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#ffd508'})
+                        dbc.CardBody(html.H5('Table of Netflix Movies', 
+                            style = {'text-align': 'center', 'font-size': "120%", 'color': '#E50914'})
                         ),
-                        color='#ff524a'
+                        color='#221F1F'
                     ),
                     dash_table.DataTable(
                         style_cell={
                                 'overflow': 'hidden',
                                 'textOverflow': 'ellipsis',
                                 'maxWidth': 0,
+                                'textAlign': 'left',
+                                'border': '1px solid blue'
                         },
+                        style_header={
+                                'backgroundColor': 'white',
+                                'fontWeight': 'bold',
+                                'textAlign': 'left',
+                                'border': '2px solid red' 
+                        },
+                        style_data_conditional=[
+                            {'if': {'row_index': 'odd'},
+                                    'backgroundColor': 'rgb(220, 220, 220)'},
+                            {'if': {'column_id': 'Title'},
+                                    'width': '25%'},
+                            {'if': {'column_id': 'Description'},
+                                    'width': '30%'},
+                            {'if': {'column_id': 'Director'},
+                                    'width': '20%'}
+                        ],
                         tooltip_duration=None,
-                        id='table', page_size=10
+                        id='table', page_size=10,
+                        sort_action="native",
+                        sort_mode="multi"
                     ),
                 ])
             ])
@@ -179,8 +211,11 @@ app.layout = dbc.Container([
     Input('genre', 'value'))
 
 def multi_output(genre):
-    selected_df = df[df.genre == genre].sort_values(by=['title'])
-    cols = ["title", "description", "director"]
+    selected_df = df[df.genre == genre].sort_values(by=['release_year'], ascending=False)
+    selected_df.rename(columns={'title': 'Title', 'description': 'Description',
+                                'director': 'Director', 'release_year': 'Release Year', 
+                                'duration': 'Duration(min)'}, inplace=True)
+    cols = ["Title", "Description", "Director", "Release Year", "Duration(min)"]
     columns = [{"name": col, "id": col} for col in cols]
     data = selected_df[cols].to_dict('records')
     tooltip_data = [{
