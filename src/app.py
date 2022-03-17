@@ -64,14 +64,14 @@ def plot_country(genre):
     # plot the world map
     source = alt.topo_feature(data.world_110m.url, "countries")
 
-    background = alt.Chart(source).mark_geoshape(fill="white")
+    background = alt.Chart(source).mark_geoshape(fill="lightgray")
 
     foreground = (
-        alt.Chart(source)
+        alt.Chart(source, title=f"Total number of {genre} type Netflix movies by country")
         .mark_geoshape(stroke="black", strokeWidth=0.15)
         .encode(
             color=alt.Color(
-                "count:Q", scale=alt.Scale(scheme='viridis'),
+                "count:Q", scale=alt.Scale(scheme='orangered'),
             ),
             tooltip=[
                 alt.Tooltip("name:N", title="Country"),
@@ -87,8 +87,8 @@ def plot_country(genre):
     final_map = (
         (background + foreground)
         .configure_view(strokeWidth=0)
-#        .properties(width=700/5, height=400/5)
-        .project("equalEarth", scale=90)
+        .properties(width=1100, height=400)
+        .project("equalEarth")
     )
     return final_map.to_html()
 
@@ -111,7 +111,7 @@ app.layout = dbc.Container([
                     options=[{'label': i, 'value': i} for i in df['genre'].unique()]
                 )
             ])
-        ], md=2),
+        ], md=3),
         dbc.Col([
             dbc.Row([
                 dbc.Col([
@@ -123,7 +123,7 @@ app.layout = dbc.Container([
                     ),
                     html.Iframe(
                         id='rating',
-                        style={'border-width': '0', 'width': '600px', 'height': '500px'},
+                        style={'border-width': '0', 'width': '700px', 'height': '500px'},
                         srcDoc=plot_rating(genre='Comedies')
                     )
                 ], md=6),
@@ -151,10 +151,11 @@ app.layout = dbc.Container([
                     ),
                     html.Iframe(
                         id='country',
-                        style={'border-width': '0', 'width': '700px', 'height': '500px'},
+                        style={'border-width': '0', 'width': '1400px', 'height': '500px'},
                         srcDoc=plot_country(genre='Comedies')
                     )
-                ], md=6),
+                ])]),
+            dbc.Row([
                 dbc.Col([
                     dbc.Card(
                         dbc.CardBody(html.H5('Table of Examples', 
