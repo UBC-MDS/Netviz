@@ -15,10 +15,19 @@ server = app.server
 df = pd.read_csv("data/processed/netflix_movies_genres.csv")
 
 def plot_rating(genre):
-    chart = alt.Chart(df[df.genre == genre], title=f"Rating distribution of {genre}").mark_bar().encode(
+    # Add the missing rating to keep every genre have all rating types
+    all_ratings = df['rating'].unique().tolist()
+    group_df = df[df.genre == genre].groupby(by=['rating']).count()['show_id'].reset_index()
+    group_df = group_df.rename(columns={'show_id': 'count'})
+    sub_ratings = group_df['rating'].tolist()
+    for rating in all_ratings:
+        if rating not in sub_ratings:
+            group_df = pd.concat([group_df, pd.DataFrame.from_dict({'rating': [rating], 'count': [0]})])
+    # Plot the chart
+    chart = alt.Chart(group_df, title=f"Rating distribution of {genre}").mark_bar().encode(
               y=alt.Y('rating', title="Rating", sort='x'),
-              x=alt.X('count()', title="Number of movies", axis=alt.Axis(format='.0f')),
-              tooltip='count()'
+              x=alt.X('count', title="Number of movies", axis=alt.Axis(format='.0f')),
+              tooltip='count'
               ).interactive()
     return chart.to_html()
 
@@ -28,7 +37,9 @@ def plot_time(genre):
     chart = alt.Chart(group_df, title=f"Release year plot of {genre}").mark_line(
         point={"filled": False,"fill": "white"}
         ).encode(
-            y=alt.Y('count', title="Frequency", axis=alt.Axis(format='.0f')),
+            y=alt.Y('count', title="Number of movies", 
+                axis=alt.Axis(values=list(range(0, 300, 5)), format='.0f'),
+                scale=alt.Scale(domain=(0, 100))),
             x=alt.X('release_year', title="Year", axis=alt.Axis(format='.0f'),
                 scale=alt.Scale(domain=(1940, 2022))),
             tooltip=['count', 'release_year']
