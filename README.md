@@ -3,7 +3,7 @@ Lianna Hovhannisyan, Lynn Wu, Simon Guo, Nobby Nguyen
 
 ## About 
 
-Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). The dashboard can be accessed from [here](https://dsci532-netviz.herokuapp.com/).
+Hi! :wave: Welcome to the NetViz project! This project aims at building an interactive dashboard for :clapper:[Netflix movies data](https://www.kaggle.com/shivamb/netflix-shows). The dashboard can be accessed from [here](https://dsci532-2022-group3-netviz.herokuapp.com/).
 
 To learn about our project, jump straight to one of the sections below, or just scroll down to find out more.
 
@@ -20,11 +20,12 @@ To learn about our project, jump straight to one of the sections below, or just 
 
 ## Description
 
-NetViz provides some summarized information on Netflix movies given by the chosen genre. From a dropdown list, users can filter out a genre that they are interested in. Currently there are four visualizations available on NetViz. First, users can find a rating plot that displays information on the distribution of each rating type of the filtered movies. The ratings are based on the [maturity ratings for movies on Netflix](https://help.netflix.com/en/node/2064) as the data is collected directly from the Netflix API. Second, users can use the time-series trending plot to discover number of movies by release year. Third, users can find a world map showing the distribution of Netflix movies with color-coded scheme indicating the amount of movies produced in each country/region. Last but not least, users who are interested to learn more about their movie selection can refer to the table on the individual movies, which provides detailed information including a short description and the director. The source data for NetViz can be found [here](https://dsci532-2022-group3-netviz.herokuapp.com/).
+NetViz provides some summarized information on Netflix movies given by the chosen genre. From a dropdown list, users can filter out a genre that they are interested in. Currently there are four visualizations available on NetViz. First, users can find a rating plot that displays information on the distribution of each rating type of the filtered movies. The ratings are based on the [maturity ratings for movies on Netflix](https://help.netflix.com/en/node/2064) as the data is collected directly from the Netflix API. Second, users can use the time-series trending plot to discover number of movies by release year. Third, users can find a world map showing the distribution of Netflix movies with color-coded scheme indicating the amount of movies produced in each country/region. Last but not least, users who are interested to learn more about their movie selection can refer to the table on the individual movies, which provides detailed information including a short description and the director.
 
 Here is a demo of the dashboard:
 
-![2022-03-03 23 14 05](https://user-images.githubusercontent.com/78331839/156862549-517b2400-f88e-49ef-887e-5ef1f446dc96.gif)
+![2022-03-17 00 01 31](https://user-images.githubusercontent.com/78331839/158754480-e426306a-7c57-4ae3-8703-261312c46dd7.gif)
+
 
 ## Motivation behind project
 
