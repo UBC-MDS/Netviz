@@ -72,7 +72,7 @@
 70,352,Iceland
 71,356,India
 72,360,Indonesia
-73,364,"Iran, Islamic Republic of"
+73,364,Iran
 74,368,Iraq
 75,372,Ireland
 76,376,Israel
@@ -129,7 +129,7 @@
 127,630,Puerto Rico
 128,634,Qatar
 129,642,Romania
-130,643,Russian Federation
+130,643,Russia
 131,646,Rwanda
 132,682,Saudi Arabia
 133,686,Senegal
@@ -148,8 +148,8 @@
 146,748,Swaziland
 147,752,Sweden
 148,756,Switzerland
-149,760,Syrian Arab Republic
-150,158,"Taiwan, Province of China"
+149,760,Syria
+150,158,Taiwan
 151,762,Tajikistan
 152,834,"Tanzania, United Republic of"
 153,764,Thailand
@@ -167,7 +167,7 @@
 165,858,Uruguay
 166,860,Uzbekistan
 167,548,Vanuatu
-168,862,"Venezuela, Bolivarian Republic of"
+168,862,Venezuela
 169,704,Vietnam
 170,732,Western Sahara
 171,887,Yemen
