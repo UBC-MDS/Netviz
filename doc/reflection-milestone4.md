@@ -59,6 +59,6 @@ The limitations of our dashboard include:
 
 If we had more time in the future, we could implement the following features:
 
--   Implement complete reproducibility. This is most especially important for the underlying dataset so that the dashboard gets updated as soon as the Vancouver Police Department releases new crimes data.
+-   Implement complete reproducibility. This is most especially important for the underlying dataset so that the dashboard gets updated as soon as Kaggle/Netflix releases new crimes data.
 -   Also, we would use a larger dataset and/or dataset with more features to include `TV Show`, or to add more widgets to our dashboard.
 -   We would add another widget to input the country of interest that users want to target to display just the figure for that specific country.
