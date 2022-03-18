@@ -226,5 +226,5 @@ def multi_output(genre):
     return plot_rating(genre), plot_time(genre), plot_country(genre), data, columns, tooltip_data
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
     
