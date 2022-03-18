@@ -52,7 +52,7 @@ The limitations of our dashboard include:
 
 - The dashboard can only utilize the movie part of the dataset. It could have been better if we also included `TV Show`.
 - The number of features are limited in this dataset. We could have included more interactive widgets if we had more features of the data to work on such as `vote counts`, `budget`, `revenue`, `profit`
--  It would be great if we can implement completely reproducibility. For example, this dashboard will not get updated if Kaggle/Netflix releases more recent dataset on their website.
+-  It would be great if we can implement complete reproducibility. For example, this dashboard will not get updated if Kaggle/Netflix releases more recent dataset on their website.
 
 
 ## 6. Potential improvements
